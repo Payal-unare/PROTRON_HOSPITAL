@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 export default function Gallery() {
   const gallery = [
@@ -32,85 +31,72 @@ export default function Gallery() {
     },
   ];
 
-  const hoverFx = {
-    y: -12,
-    boxShadow: "0 30px 80px rgba(59,130,246,0.35)",
-  };
-
   return (
-    <section className="pt-32 pb-40 bg-[#020617] text-white">
+    <section className="pt-28 bg-slate-50 pb-32">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mb-24"
-        >
-          <h1 className="text-5xl font-bold">
+        <div className="max-w-4xl mb-24">
+          <h1 className="text-5xl font-semibold text-slate-900">
             Gallery
           </h1>
-          <p className="mt-6 text-lg text-gray-400 leading-relaxed">
+          <p className="mt-6 text-lg text-slate-600 leading-relaxed">
             Explore the infrastructure and facilities of Proton Critical Care
             Center — designed to deliver advanced medical care with safety,
             hygiene, and patient comfort at its core.
           </p>
-        </motion.div>
+        </div>
 
         {/* Sections */}
         <div className="space-y-40">
           {gallery.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9 }}
-            >
+            <div key={index}>
               {/* Section Header */}
-              <div className="max-w-3xl mb-14">
-                <h2 className="text-3xl font-bold">
+              <div className="max-w-3xl mb-12">
+                <h2 className="text-3xl font-semibold text-slate-900">
                   {section.title}
                 </h2>
-                <p className="mt-4 text-gray-400">
+                <p className="mt-3 text-slate-600">
                   {section.desc}
                 </p>
               </div>
 
               {/* Image Layout */}
               <div className="grid lg:grid-cols-3 gap-10 items-stretch">
-
                 {/* Main Image */}
-                <motion.div
-                  whileHover={hoverFx}
-                  className="lg:col-span-2 overflow-hidden rounded-3xl bg-[#0b1220] border border-white/10"
-                >
+                <div className="lg:col-span-2 overflow-hidden rounded-2xl bg-white shadow-lg">
                   <img
                     src={section.main}
                     alt={section.title}
-                    className="w-full h-[440px] object-cover transition-transform duration-700 hover:scale-[1.05]"
+                    className="
+                      w-full h-[420px] object-cover
+                      transition-transform duration-700
+                      hover:scale-[1.04]
+                    "
                   />
-                </motion.div>
+                </div>
 
                 {/* Side Images */}
                 <div className="flex flex-col gap-10">
                   {section.others.map((img, i) => (
-                    <motion.div
+                    <div
                       key={i}
-                      whileHover={hoverFx}
-                      className="overflow-hidden rounded-3xl bg-[#0b1220] border border-white/10"
+                      className="overflow-hidden rounded-2xl bg-white shadow-md"
                     >
                       <img
                         src={img}
                         alt={section.title}
-                        className="w-full h-[205px] object-cover transition-transform duration-700 hover:scale-[1.05]"
+                        className="
+                          w-full h-[200px] object-cover
+                          transition-transform duration-700
+                          hover:scale-[1.04]
+                        "
                       />
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

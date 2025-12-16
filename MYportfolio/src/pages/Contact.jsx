@@ -1,31 +1,6 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import React from "react";
 
 export default function Contact() {
-  const formRef = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",     // 🔴 replace
-        "YOUR_TEMPLATE_ID",    // 🔴 replace
-        formRef.current,
-        "YOUR_PUBLIC_KEY"      // 🔴 replace
-      )
-      .then(
-        () => {
-          alert("Appointment request sent successfully!");
-          formRef.current.reset();
-        },
-        (error) => {
-          alert("Failed to send request. Please try again.");
-          console.error(error);
-        }
-      );
-  };
-
   return (
     <section className="pt-28 pb-32 bg-[#0b1220] text-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -41,44 +16,40 @@ export default function Contact() {
           </p>
         </div>
 
+        {/* ================= CONTENT ================= */}
         <div className="grid lg:grid-cols-2 gap-20 items-start">
 
           {/* ================= FORM ================= */}
+          
           <div className="bg-[#020617] border border-white/10 rounded-3xl p-10 shadow-2xl">
-            <h3 className="text-2xl font-bold mb-8">Book an Appointment</h3>
+            <h3 className="text-2xl font-bold mb-8">
+              Book an Appointment
+            </h3>
 
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
-
+            <form className="space-y-6">
               <input
                 type="text"
-                name="name"
                 placeholder="Full Name"
-                required
-                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl"
+                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl focus:outline-none focus:border-red-500"
               />
 
               <input
                 type="email"
-                name="email"
                 placeholder="Email Address"
-                required
-                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl"
+                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl focus:outline-none focus:border-red-500"
               />
 
               <input
                 type="tel"
-                name="phone"
                 placeholder="Phone Number"
-                required
-                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl"
+                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl focus:outline-none focus:border-red-500"
               />
 
+              {/* Department Dropdown */}
               <select
-                name="department"
-                required
-                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl text-gray-300"
+                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl focus:outline-none focus:border-red-500 text-gray-300"
               >
-                <option value="">Select Department</option>
+                <option>Select Department</option>
                 <option>Cardiology</option>
                 <option>Neurology</option>
                 <option>Orthopedics</option>
@@ -86,23 +57,20 @@ export default function Contact() {
                 <option>General Medicine</option>
               </select>
 
+              {/* Doctor Dropdown */}
               <select
-                name="doctor"
-                required
-                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl text-gray-300"
+                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl focus:outline-none focus:border-red-500 text-gray-300"
               >
-                <option value="">Select Doctor</option>
-                <option>Dr. Sameer Patil</option>
-                <option>Dr. Priya Mehta</option>
-                <option>Dr. Rohan Desai</option>
+                <option>Select Doctor</option>
+                <option>Dr. Sameer Patil – Cardiology</option>
+                <option>Dr. Priya Mehta – Neurology</option>
+                <option>Dr. Rohan Desai – Orthopedics</option>
               </select>
 
               <textarea
-                name="message"
                 rows="4"
                 placeholder="Describe your concern"
-                required
-                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl"
+                className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl focus:outline-none focus:border-red-500"
               />
 
               <button
@@ -116,29 +84,48 @@ export default function Contact() {
               >
                 Submit Request
               </button>
-
             </form>
           </div>
-
-          {/* ================= INFO ================= */}
+           
+          {/* ================= INFO & IMAGE ================= */}
           <div className="space-y-10">
+
+            {/* Image */}
             <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1580281657521-6c5a1c40c02a?q=80&w=2000"
-                className="w-full h-[320px] object-cover"
-                alt="Hospital"
+                alt="Hospital Contact"
+                className="w-full h-[320px] object-cover hover:scale-105 transition duration-700"
               />
             </div>
 
+            {/* Contact Info */}
             <div className="bg-[#020617] border border-white/10 rounded-3xl p-8">
               <h4 className="text-xl font-bold mb-6">Emergency & Support</h4>
-              <p className="text-gray-300">📞 +91 98765 43210</p>
-              <p className="text-gray-300">✉️ contact@protonhospital.com</p>
-              <p className="text-gray-300">📍 Amravati, Maharashtra</p>
-            </div>
-          </div>
 
+              <div className="space-y-4 text-gray-300">
+                <p>
+                  <span className="text-gray-400">Emergency:</span>{" "}
+                  <span className="text-red-500 font-semibold">24/7 Available</span>
+                </p>
+                <p>
+                  <span className="text-gray-400">Phone:</span>{" "}
+                  +91 98765 43210
+                </p>
+                <p>
+                  <span className="text-gray-400">Email:</span>{" "}
+                  contact@protonhospital.com
+                </p>
+                <p>
+                  <span className="text-gray-400">Location:</span>{" "}
+                  Amravati, Maharashtra
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
   );
