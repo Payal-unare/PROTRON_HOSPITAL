@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  HeartPulse,
-  Brain,
-  Bone,
-  Activity,
-} from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { HeartPulse, Brain, Bone, Activity } from "lucide-react";
 
 export default function Home() {
+  const navigate = useNavigate();
   const doctors = [
     {
       name: "Dr. Sameer Patil",
@@ -37,7 +34,6 @@ export default function Home() {
 
   return (
     <div className="bg-[#0b1220] text-white overflow-hidden">
-
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center">
         <motion.div
@@ -60,36 +56,32 @@ export default function Home() {
             transition={{ duration: 0.9 }}
           >
             <motion.h3
-  whileHover={hoverFx}
-  className="inline-block cursor-pointer text-[5rem] leading-none font-extrabold tracking-tight"
->
-  <span className="bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-400 bg-clip-text text-transparent">
-    PROTON HOSPITAL
-  </span>
-  
-</motion.h3>
-
-
+              whileHover={hoverFx}
+              className="inline-block cursor-pointer text-[5rem] leading-none font-extrabold tracking-tight"
+            >
+              <span className="bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-400 bg-clip-text text-transparent">
+                PROTON HOSPITAL
+              </span>
+            </motion.h3>
 
             <p className="mt-4 text-xl text-blue-200">
               Critical Care Center · Amravati
             </p>
 
             <p className="mt-8 text-lg text-gray-300 max-w-xl leading-relaxed">
-              Where advanced medical science meets responsibility,
-              precision, and round-the-clock critical care.
+              Where advanced medical science meets responsibility, precision,
+              and round-the-clock critical care.
             </p>
 
             <div className="mt-10 flex gap-6">
-              <Link to="/contact">
-                <motion.button
-                  whileHover={hoverFx}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-red-600 px-10 py-5 rounded-xl font-bold shadow-[0_20px_40px_rgba(220,38,38,0.4)]"
-                >
-                  Book Appointment
-                </motion.button>
-              </Link>
+              <motion.button
+                whileHover={hoverFx}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate("/login")}
+                className="bg-red-600 px-10 py-5 rounded-xl font-bold shadow-[0_20px_40px_rgba(220,38,38,0.4)]"
+              >
+                Book Appointment
+              </motion.button>
 
               <Link to="/services">
                 <motion.button
@@ -152,9 +144,7 @@ export default function Home() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold">{doc.name}</h3>
                     <p className="text-gray-400 text-sm">{doc.role}</p>
-                    <p className="text-red-500 mt-2 font-semibold">
-                      {doc.exp}
-                    </p>
+                    <p className="text-red-500 mt-2 font-semibold">{doc.exp}</p>
                   </div>
                 </motion.div>
               ))}

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Services() {
   const list = [
@@ -53,104 +54,72 @@ export default function Services() {
   ];
 
   return (
-    <div className="pt-28 bg-gradient-to-b from-[#f8fbff] to-[#eef3ff]">
-      
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-blue-600 opacity-10 blur-3xl"></div>
-        <div className="relative py-24 px-6 text-center max-w-6xl mx-auto">
-          
-          <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
-            Our Specialized Medical Services
-          </h1>
+    <section className="pt-28 pb-32 bg-[#0b1220] text-white">
+      <div className="max-w-7xl mx-auto px-6 space-y-20">
 
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto mt-5">
-            Delivering advanced healthcare with modern technology, expert doctors, 
-            and patient-first care — all under one roof at Proton Critical Care Center.
+        {/* ================= HERO ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h2 className="text-5xl font-black tracking-tight">
+            Our <span className="text-red-500">Medical Services</span>
+          </h2>
+          <p className="mt-6 text-gray-300 text-lg leading-relaxed">
+            Proton Hospital provides world-class care with advanced technology and experienced specialists. Explore our wide range of medical services designed for every patient’s needs.
           </p>
-        </div>
-      </div>
+        </motion.div>
 
-      {/* Highlight Panels */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 mt-10">
-        {[
-          {
-            title: "24/7 Emergency",
-            text: "Immediate care with round-the-clock Radiology, Pathology & Pharmacy.",
-          },
-          {
-            title: "Modern Technology",
-            text: "Modular OT, laminar flow, ventilators & advanced diagnostic equipment.",
-          },
-          {
-            title: "Expert Specialists",
-            text: "Highly trained, experienced medical professionals in every department.",
-          },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className="
-              p-7 rounded-2xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)]
-              border border-slate-200 hover:shadow-[0_12px_40px_rgb(0,0,0,0.12)]
-              transition-all duration-300
-            "
-          >
-            <h3 className="text-2xl font-semibold text-blue-700">{item.title}</h3>
-            <p className="text-slate-600 mt-2 leading-relaxed">{item.text}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Services Section */}
-      <div className="max-w-7xl mx-auto px-6 mt-24 pb-24">
-        <h2 className="text-4xl font-bold text-center text-slate-900">
-          Comprehensive Care for Every Need
-        </h2>
-        <p className="text-center text-slate-600 mt-3 max-w-2xl mx-auto">
-          Every service at Proton Critical Care Center is designed with compassion, 
-          accuracy and world-class expertise.
-        </p>
-
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 mt-16">
-          {list.map((service) => (
-            <div
+        {/* ================= SERVICES GRID ================= */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {list.map((service, i) => (
+            <motion.div
               key={service.title}
-              className="
-                bg-white rounded-3xl p-8 border border-slate-200 
-                shadow-[0_6px_25px_rgba(0,0,0,0.06)]
-                hover:shadow-[0_15px_45px_rgba(0,0,0,0.12)]
-                hover:-translate-y-2 transition-all duration-300 group
-              "
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-[#020617] p-8 rounded-3xl border border-white/10 shadow-xl hover:-translate-y-2 transition"
             >
-              <div
-                className="
-                  text-6xl mb-6 bg-blue-50 text-blue-600 p-4 w-fit mx-auto 
-                  rounded-2xl group-hover:bg-blue-600 group-hover:text-white 
-                  transition-all duration-300
-                "
-              >
+              <div className="text-5xl mb-6 flex justify-center items-center">
                 {service.icon}
               </div>
-
-              <h3 className="text-2xl font-semibold text-center text-slate-800">
-                {service.title}
-              </h3>
-
-              <p className="text-slate-600 text-center mt-3 leading-relaxed">
-                {service.description}
-              </p>
-
-              <div
-                className="
-                  h-1 w-0 bg-blue-600 mt-6 mx-auto rounded-full
-                  group-hover:w-3/4 transition-all duration-500
-                "
-              ></div>
-            </div>
+              <h3 className="text-2xl font-bold text-center mb-2">{service.title}</h3>
+              <p className="text-gray-400 text-center leading-relaxed">{service.description}</p>
+            </motion.div>
           ))}
         </div>
+
+        {/* ================= WHY CHOOSE US ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-4xl font-bold text-center mb-12">
+            Why Choose <span className="text-red-500">Proton Hospital</span>
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              ["24/7 Emergency Care", "Round-the-clock critical care with rapid response teams."],
+              ["Advanced Technology", "Modern ICUs, modular OTs, and high-precision diagnostics."],
+              ["Expert Doctors", "Highly experienced specialists across multiple disciplines."],
+            ].map(([title, desc], i) => (
+              <div
+                key={i}
+                className="bg-[#020617] p-8 rounded-2xl border border-white/10 hover:-translate-y-2 transition"
+              >
+                <h4 className="text-xl font-bold mb-3">{title}</h4>
+                <p className="text-gray-400">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 }
