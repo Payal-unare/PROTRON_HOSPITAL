@@ -9,6 +9,9 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import IntroAnimation from "./components/IntroAnimation";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/Login/SignUp"
+
 
 export default function App() {
   return (
@@ -20,6 +23,8 @@ export default function App() {
       <Router>
         <Navbar />
         <Routes>
+          <Route path="/signup" element={<SignUp></SignUp>} />
+          <Route path="/login" element={<Login/>}/>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />

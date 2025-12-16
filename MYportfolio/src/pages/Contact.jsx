@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
+  const navigate = useNavigate();
+    const handleSubmit = (e) => {
+    e.preventDefault(); // stop page reload
+
+    navigate("/login"); // redirect to login page
+  };
+
   return (
     <section className="pt-28 pb-32 bg-[#0b1220] text-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -24,7 +32,7 @@ export default function Contact() {
               Book an Appointment
             </h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Full Name"
@@ -79,6 +87,7 @@ export default function Contact() {
                   hover:shadow-[0_20px_60px_rgba(59,130,246,0.45)]
                   transition
                 "
+                
               >
                 Submit Request
               </button>
