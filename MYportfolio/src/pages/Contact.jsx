@@ -9,10 +9,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",     // 🔴 replace
-        "YOUR_TEMPLATE_ID",    // 🔴 replace
+        "YOUR_SERVICE_ID", // 🔴 replace
+        "YOUR_TEMPLATE_ID", // 🔴 replace
         formRef.current,
-        "YOUR_PUBLIC_KEY"      // 🔴 replace
+        "YOUR_PUBLIC_KEY" // 🔴 replace
       )
       .then(
         () => {
@@ -29,7 +29,6 @@ export default function Contact() {
   return (
     <section className="pt-28 pb-32 bg-[#0b1220] text-white">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* ================= HEADER ================= */}
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-5xl font-black tracking-tight">
@@ -42,13 +41,11 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-20 items-start">
-
           {/* ================= FORM ================= */}
           <div className="bg-[#020617] border border-white/10 rounded-3xl p-10 shadow-2xl">
             <h3 className="text-2xl font-bold mb-8">Book an Appointment</h3>
 
             <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
-
               <input
                 type="text"
                 name="name"
@@ -104,7 +101,7 @@ export default function Contact() {
                 required
                 className="w-full bg-[#0b1220] border border-white/10 p-4 rounded-xl"
               />
-
+              <></>
               <button
                 type="submit"
                 className="
@@ -116,7 +113,6 @@ export default function Contact() {
               >
                 Submit Request
               </button>
-
             </form>
           </div>
 
@@ -137,7 +133,6 @@ export default function Contact() {
               <p className="text-gray-300">📍 Amravati, Maharashtra</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
