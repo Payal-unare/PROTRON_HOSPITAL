@@ -5,7 +5,6 @@ export default function Contact() {
   const navigate = useNavigate();
     const handleSubmit = (e) => {
     e.preventDefault(); // stop page reload
-
     navigate("/login"); // redirect to login page
   };
 
