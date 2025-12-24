@@ -6,28 +6,28 @@ export default function Gallery() {
     {
       title: "Hospital Infrastructure",
       desc: "A modern healthcare environment built for efficiency, safety, and patient comfort.",
-      main: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1800",
+      main: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200",
       others: [
-        "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200",
+        "infrastructure2.png",
         "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1200",
       ],
     },
     {
       title: "Operation Theatre & ICU",
       desc: "Advanced modular operation theatres and fully equipped intensive care units.",
-      main: "https://images.unsplash.com/photo-1580281657521-6c5a1c40c02a?q=80&w=1800",
+      main: "ot2.png",
       others: [
         "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200",
-        "https://images.unsplash.com/photo-1664303535827-78a06a7b25a7?q=80&w=1200",
+        "icu.png",
       ],
     },
     {
       title: "Diagnostics & Patient Care",
       desc: "Accurate diagnostics and compassionate patient-focused medical care.",
-      main: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1800",
+      main: "care4.png",
       others: [
-        "https://images.unsplash.com/photo-1587502537745-84e8b0b6f8b5?q=80&w=1200",
-        "https://images.unsplash.com/photo-1576091160501-bbe57469278b?q=80&w=1200",
+        "care1.png",
+        "care3.png",
       ],
     },
   ];

@@ -11,7 +11,7 @@ export default function Home() {
       name: "Dr. Sameer Patil",
       role: "Interventional Cardiologist",
       exp: "15+ Years",
-      img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=900",
+      img: "doctor1.png",
     },
     {
       name: "Dr. Priya Mehta",
@@ -23,7 +23,7 @@ export default function Home() {
       name: "Dr. Rohan Desai",
       role: "Orthopedic Surgeon",
       exp: "10+ Years",
-      img: "https://images.unsplash.com/photo-1606813907291-95a51c2f81e7?w=900",
+      img: "doctor2.png",
     },
   ];
 

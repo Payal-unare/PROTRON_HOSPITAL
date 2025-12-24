@@ -10,8 +10,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import IntroAnimation from "./components/IntroAnimation";
 import Login from "./pages/Login/Login";
-import SignUp from "./pages/Login/SignUp"
+import SignUp from "./pages/Login/SignUp";
 
+import ScrollToTop from "./components/ScrollToTop"; // ✅ ADD THIS
 
 export default function App() {
   return (
@@ -21,16 +22,19 @@ export default function App() {
 
       {/* Actual Website */}
       <Router>
+        <ScrollToTop /> {/* ✅ MUST be inside Router */}
         <Navbar />
+
         <Routes>
-          <Route path="/signup" element={<SignUp></SignUp>} />
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+
         <Footer />
       </Router>
     </>
